@@ -13,7 +13,35 @@
 
 ## 🚀 クイックスタート
 
-### 1. 環境セットアップ
+### デプロイ方法
+
+#### Streamlit Cloudでデプロイ（推奨）
+
+1. **GitHubリポジトリの準備**
+   - このリポジトリをGitHubにプッシュ済みであることを確認
+
+2. **Streamlit Cloudにアクセス**
+   - [https://share.streamlit.io/](https://share.streamlit.io/) にアクセス
+   - GitHubアカウントでサインイン
+
+3. **アプリをデプロイ**
+   - "New app" をクリック
+   - リポジトリ: `yo-kun720/Scrape_EMA`
+   - Branch: `main`
+   - Main file path: `app/streamlit_app.py`
+
+4. **Secretsを設定**
+   - デプロイ後、"Settings" → "Secrets" に移動
+   - 以下を追加：
+     ```toml
+     OPENAI_API_KEY = "your_openai_api_key_here"
+     ```
+
+5. **デプロイ完了**
+   - 自動的にアプリがビルド・デプロイされます
+   - 公開URLが発行されます
+
+### 1. ローカル環境セットアップ
 
 ```bash
 # 仮想環境を作成・有効化

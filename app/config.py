@@ -5,12 +5,19 @@ import os
 from typing import List
 from dotenv import load_dotenv
 
-# .envファイルを読み込む
+# .envファイルを読み込む（ローカル環境用）
 load_dotenv()
 
 # OpenAI設定
 MODEL_NAME = "gpt-4o-mini"  # 軽量モデルをデフォルトに
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# Streamlit Cloud Secrets対応
+try:
+    import streamlit as st
+    OPENAI_API_KEY = st.secrets.get("OPENAI_API_KEY", os.getenv("OPENAI_API_KEY"))
+except (ImportError, FileNotFoundError):
+    # Streamlit環境でない場合、または secrets.toml がない場合
+    OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 # EMA設定
 EMA_BASE_URL = "https://www.ema.europa.eu"
