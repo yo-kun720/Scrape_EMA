@@ -61,3 +61,6 @@ test_*.py
 
 # Generated HTML files
 *.html
+
+# macOS Application Bundle
+*.app/
